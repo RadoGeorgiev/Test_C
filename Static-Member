@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Box
+{
+    double lenght;
+    double breadth;
+    double height;
+    
+    public:
+        static int ObjCount; //setting static member
+        //constructor definition
+        Box (double l = 2.0, double b = 2.0, double h = 2.0)
+        {
+            cout << "constructor called." << endl;
+            lenght = l;
+            breadth = b;
+            height =h;
+            // increase every time obj is created
+            ObjCount++;
+        }
+        double Vol()
+        {
+            return lenght * breadth * height;
+        }
+};
+
+// Initialize static member of class box
+int Box::ObjCount = 0;
+
+int main()
+{
+    Box box1(3.3, 1.2, 1.5);
+    Box box2(2.8, 2.2, 5.5);
+    Box box3(8.5, 6.0, 2.0);
+    Box box4(2.0, 9.0, 6.3);
+    
+    // Print total number of obj
+    cout << "Box1: " << box1.Vol() << endl;
+    cout << "Total objects:" << Box::ObjCount << endl;
+}
+
